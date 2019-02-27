@@ -1,4 +1,4 @@
-*Note: This document is written in Markdown syntax. Answers to questions are _underlined_.*
+Note: This document is written in Markdown syntax. Answers to questions are _italicized_.
 
 ## a) Drug Testing
 
@@ -17,27 +17,27 @@ User|0.088|0.00089
 	
 ### Problems:
 
-	i. **P**(User) = ?
+i. **P**(User) = ?
 		
-		**P**(U) = _<0.089, 0.911>_
+* **P**(U) = _<0.089, 0.911>_
 		
-	ii. P(Test|User) = ?
+ii. P(Test|User) = ?
 		
-		P(T|U) = _0.99_
+* P(T|U) = _0.99_
 		
-	iii. P(-Test|User) = ?
+iii. P(-Test|User) = ?
 		
-		P(-T|U) = 1 - P(T|U) = 1 - 0.99 = _0.01_
+* P(-T|U) = 1 - P(T|U) = 1 - 0.99 = _0.01_
 		
-	iv. P(Test|-User) = ?
+iv. P(Test|-User) = ?
 		
-		P(T|-U) = P(T^-U) / P(-U) = 0.018 / 0.911 = 0.02
+* P(T|-U) = P(T^-U) / P(-U) = 0.018 / 0.911 = 0.02
 	
-	v. **P**(User|Test) = ?
+v. **P**(User|Test) = ?
 	
-		P(U|T) = P(U^T) / P(T) = 0.088 / (0.088 + 0.018) = 0.83
+* P(U|T) = P(U^T) / P(T) = 0.088 / (0.088 + 0.018) = 0.83
 		
-		**P**(U|T) = _<0.83, 0.17>_
+* **P**(U|T) = _<0.83, 0.17>_
 		
 ## b) Breast Cancer
 
