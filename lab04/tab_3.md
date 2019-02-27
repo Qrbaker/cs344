@@ -8,11 +8,11 @@
 * P(-T|-U) = 0.98
 * P(U) = 0.089 (And therefore, P(-U) = 1 - 0.089 = 0.911)
 
-### Joint Probability Table:
-     |Test |-Test
------|-----|-------
-User |0.088|0.00089
--User|0.018|0.893  	  
+### Joint Probability Table:   
+P(X)|Test |-Test   
+----|-----|-----  
+User|0.088|0.00089   
+-User|0.018|0.893     	  
 				 
 	
 ### Problems:
@@ -47,12 +47,11 @@ User |0.088|0.00089
 * P(T|C) = 0.80
 * P(T|-C) = 0.096
 
-### Joint Probability Table
-	
-     |Cancer|-Cancer
------|------|-------
-Test | .008 |.095
--Test| .002 |0.89
+### Joint Probability Table   
+P(X)|Cancer|-Cancer   
+----|------|-------   
+Test|.008|.095   
+-Test|.002|0.89   
 
 A woman in this age group is found to have a positive mammography in a routine screening. What are the chances that she has/doesn't have cancer?
 
