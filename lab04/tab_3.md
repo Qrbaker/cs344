@@ -57,6 +57,5 @@ A woman in this age group is found to have a positive mammography in a routine s
 
 * P (C|T) = ?
 
-P (C|T) = P(C^T) / P(T)
-
-		= 0.008 / (0.008 + 0.095) = 0.008 / 0.103 = _0.0777_, or _7%_ chance this patience has cancer.
+* P (C|T) = P(C^T) / P(T)
+= 0.008 / (0.008 + 0.095) = 0.008 / 0.103 = _0.0777_, or _7%_ chance this patience has cancer.
