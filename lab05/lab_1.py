@@ -49,8 +49,8 @@ print(gibbs_ask('Alarm', dict(Burglary=T, Earthquake=F), burglary).show_approx()
 According to the results, if there has been a burglary, but not an earthquake, the alarm will almost certainly go off 
 (~95%). This makes sense, as any effective security solution will be designed to detect a burglary as best as it can. 
 '''
-print("===========================================")
 
+print("===========================================")
 # --- P(John calls | burglary and not earthquake) --- #
 print("P(J|b^-e):")
 print(enumeration_ask('JohnCalls', dict(Burglary=T, Earthquake=F), burglary).show_approx())
@@ -66,8 +66,8 @@ decent non-zero chance he will NOT call as well. This intuitively makes sense, a
 asleep, or not home, or just wouldn't hear the alarm for some reason. Additionally, this stacks with the slim chance 
 that the alarm may also simply not go off, as calculated above. 
 '''
-print("===========================================")
 
+print("===========================================")
 # --- P(Burglary | alarm) --- #
 print("P(B|a):")
 print(enumeration_ask('Burglary', dict(Alarm=T), burglary).show_approx())
@@ -81,8 +81,8 @@ print(gibbs_ask('Burglary', dict(Alarm=T), burglary).show_approx())
 Given how unlikely a burglary is (< 1%), even though an alarm rarely goes off its generally _more likely_ to be a "false
 positive" (~60%) than an actual burglary. The results are therefore within expectations.
 '''
-print("===========================================")
 
+print("===========================================")
 # --- P(Burglary | John and Mary both call) --- #
 print("P(B|j^m):")
 print(enumeration_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary).show_approx())
