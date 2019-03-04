@@ -21,8 +21,6 @@ happy = BayesNet([
 # P(Raise | Sunny)
 print("P(R|S):")
 print(enumeration_ask('Raise', dict(Sunny=T), happy).show_approx())
-print(elimination_ask('Raise', dict(Sunny=T), happy).show_approx())
-print(gibbs_ask('Raise', dict(Sunny=T), happy).show_approx())
 
 '''
 The probability of a raise is independent on if it is sunny, so the probability of P(R|S) == P(R).
@@ -32,8 +30,6 @@ print("===========================================")
 # P(Raise | happy ^ sunny)
 print("P(R|h^s):")
 print(enumeration_ask('Raise', dict(Happy=T, Sunny=T), happy).show_approx())
-print(elimination_ask('Raise', dict(Happy=T, Sunny=T), happy).show_approx())
-print(gibbs_ask('Raise', dict(Happy=T, Sunny=T), happy).show_approx())
 # Result: False: 0.986, True: 0.0142
 
 '''
@@ -55,8 +51,6 @@ print("===========================================")
 # P(Raise | happy)
 print("P(R|h):")
 print(enumeration_ask('Raise', dict(Happy=T), happy).show_approx())
-print(elimination_ask('Raise', dict(Happy=T), happy).show_approx())
-print(gibbs_ask('Raise', dict(Happy=T), happy).show_approx())
 # Result: False: 0.982, True: 0.0185
 
 '''
@@ -68,9 +62,8 @@ print("===========================================")
 # P(Raise | happy ^ -sunny)
 print("P(R|h^-s):")
 print(enumeration_ask('Raise', dict(Happy=T, Sunny=F), happy).show_approx())
-print(elimination_ask('Raise', dict(Happy=T, Sunny=F), happy).show_approx())
-print(gibbs_ask('Raise', dict(Happy=T, Sunny=F), happy).show_approx())
 # Result: False: 0.917, True: 0.0833
+
 '''
 Even if it is known that it isn't sunny outside, its still unlikely an agent got a raise, given they are happy (though 
 it is *more* likely than the previous example). This is because the likelyhood of just being happy dispite not being 

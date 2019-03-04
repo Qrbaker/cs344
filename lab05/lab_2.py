@@ -22,10 +22,6 @@ cancer = BayesNet([
 print("P(C|T1^T2):")
 print(enumeration_ask('Cancer', dict(Test1=T, Test2=T), cancer).show_approx())
 # Result: False: 0.83, True: 0.17
-print(elimination_ask('Cancer', dict(Test1=T, Test2=T), cancer).show_approx())
-# Result: False: 0.83, True: 0.17
-print(gibbs_ask('Cancer', dict(Test1=T, Test2=T), cancer).show_approx())
-# Result: False: 0.817, True: 0.183
 '''
 Even if BOTH tests are positive, the likelyhood the person tested has cancer is still quite low (only ~17%). This comes
 down to the fact that dispite the decent spesificity of the tests, in general the likelyhood a given patient has cancer
@@ -46,10 +42,6 @@ print("===========================================")
 print("P(C|T1^-T2):")
 print(enumeration_ask('Cancer', dict(Test1=T, Test2=F), cancer).show_approx())
 # Result: False: 0.994, True: 0.00565
-print(elimination_ask('Cancer', dict(Test1=T, Test2=F), cancer).show_approx())
-# Result: False: 0.994, True: 0.00565
-print(gibbs_ask('Cancer', dict(Test1=T, Test2=F), cancer).show_approx())
-# Result: False: 0.994, True: 0.006
 '''
 If ONE test is positive, but the other is negative, its almost certain the patient does NOT have cancer (> 99%)! This is
 because the tests have a low (but non-zero) chance of having a false positive, and the chance of each test's false

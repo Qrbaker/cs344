@@ -40,11 +40,6 @@ burglary = BayesNet([
 print("P(A|b^-e):")
 print(enumeration_ask('Alarm', dict(Burglary=T, Earthquake=F), burglary).show_approx())
 # Result: False: 0.06, True: 0.94
-print(elimination_ask('Alarm', dict(Burglary=T, Earthquake=F), burglary).show_approx())
-# Result: False: 0.06, True: 0.94
-print(gibbs_ask('Alarm', dict(Burglary=T, Earthquake=F), burglary).show_approx())
-# Result: False: 0.051, True: 0.949
-
 '''
 According to the results, if there has been a burglary, but not an earthquake, the alarm will almost certainly go off 
 (~95%). This makes sense, as any effective security solution will be designed to detect a burglary as best as it can. 
@@ -55,10 +50,6 @@ print("===========================================")
 print("P(J|b^-e):")
 print(enumeration_ask('JohnCalls', dict(Burglary=T, Earthquake=F), burglary).show_approx())
 # Result: False: 0.151, True: 0.849
-print(elimination_ask('JohnCalls', dict(Burglary=T, Earthquake=F), burglary).show_approx())
-# Result: False: 0.151, True: 0.849
-print(gibbs_ask('JohnCalls', dict(Burglary=T, Earthquake=F), burglary).show_approx())
-# Result: False: 0.158, True: 0.842
 
 '''
 According to the results, if there has been a burglary, it is fairly likely John calls (~85%). However, there is a 
@@ -72,10 +63,6 @@ print("===========================================")
 print("P(B|a):")
 print(enumeration_ask('Burglary', dict(Alarm=T), burglary).show_approx())
 # False: 0.626, True: 0.374
-print(elimination_ask('Burglary', dict(Alarm=T), burglary).show_approx())
-# False: 0.626, True: 0.374
-print(gibbs_ask('Burglary', dict(Alarm=T), burglary).show_approx())
-# False: 0.611, True: 0.389
 
 '''
 Given how unlikely a burglary is (< 1%), even though an alarm rarely goes off its generally _more likely_ to be a "false
@@ -87,10 +74,6 @@ print("===========================================")
 print("P(B|j^m):")
 print(enumeration_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary).show_approx())
 # Result: False: 0.716, True: 0.284
-print(elimination_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary).show_approx())
-# Result: False: 0.716, True: 0.284
-print(gibbs_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary).show_approx())
-# Result: False: 0.702, True: 0.298
 
 '''
 If BOTH John and Mary call, it is likely there has been a burglary (~70%). However, there are many reasons both John and
