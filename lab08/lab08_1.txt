@@ -1,0 +1,6 @@
+Question Responses:
+	a. The Pearson correlation coefficient (a.k.a. r-value) is a single-number representation of the correlation between 
+two given variables.
+	b. 
+		Task 1:
+	

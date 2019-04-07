@@ -1,0 +1,67 @@
+a.
+
+Task 1:
+	* The maximum value of median_house_value is *exactly* 500. That seems odd, and unintuitive (I 
+know there would be more expensive houses than 500k in California in 1990!)
+	* The rooms_per_person max value is 55. Either someone lives in a hotel, or maybe a mansion... 
+It's also much higher than the mean (2.1), +- the standard deviation.
+
+Task 2: 
+
+Taking a look and comparing the training vs. validation data, I can see that the statistical 
+data for our features are not very similar in some circumstances. For a dataset as large as this one, 
+two samples should have similar ranges and averages.
+
+Also, the "map" made with the data points is clearly a map of California with a clean dividing line. 
+The data was not selected randomly!
+
+Task 3:
+
+Sure enough. Lines 21 and 22 are commented out, which are the code points that would have randomized 
+the data first.
+
+Task 4: (Using code taken from 7.3)
+
+  # 1. Create input functions.
+  my_label = "median_house_value"
+  training_input_fn = lambda: my_input_fn(training_examples, training_targets[my_label], batch_size = 
+batch_size)
+  predict_training_input_fn = lambda: my_input_fn(training_examples, training_targets[my_label], 
+num_epochs = 1, shuffle = False)
+  predict_validation_input_fn = lambda: my_input_fn(validation_examples, validation_targets[my_label], 
+num_epochs = 1, shuffle = False)
+
+    # 2. Take a break and compute predictions.
+    training_predictions = linear_regressor.predict(input_fn=predict_training_input_fn)
+    training_predictions = np.array([item['predictions'][0] for item in training_predictions])
+    validation_predictions = linear_regressor.predict(input_fn=predict_validation_input_fn)
+    validation_predictions = np.array([item['predictions'][0] for item in validation_predictions])
+
+---
+linear_regressor = train_model(
+    # TWEAK THESE VALUES TO SEE HOW MUCH YOU CAN IMPROVE THE RMSE
+    learning_rate=0.00004,
+    steps=350,
+    batch_size=20,
+    training_examples=training_examples,
+    training_targets=training_targets,
+    validation_examples=validation_examples,
+    validation_targets=validation_targets)
+
+Task 5:
+
+california_housing_test_data = 
+pd.read_csv("https://download.mlcc.google.com/mledu-datasets/california_housing_test.csv", sep=",")
+
+example_data = preprocess_features(california_housing_test_data)
+target_data = preprocess_targets(california_housing_test_data)
+
+example_prediction_fn = lambda: my_input_fn(example_data, target_data['median_house_value'], 
+num_epochs=1, shuffle=False)
+
+test_pred = linear_regressor.predict(input_fn=example_prediction_fn)
+test_pred = np.array([item['predictions'][0] for item in test_pred])
+
+rms_error = math.sqrt(metrics.mean_squared_error(test_pred, target_data))
+
+print('Root of mean squared error: '+ str(rms_error))

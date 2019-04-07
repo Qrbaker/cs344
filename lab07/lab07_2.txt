@@ -1,0 +1,28 @@
+a.  Categorical Data: Data that is a qualitative label, stored and managed as a string
+    Numerical Data: Data that is a *number*, stored and managed as a float or int.
+b.
+    Task 1:
+
+train_model(
+    learning_rate=0.000022,
+    steps=700,
+    batch_size=2
+)
+
+    Task 2:
+
+train_model(
+    learning_rate=0.0012,
+    steps=500,
+    batch_size=500,
+    input_feature='longitude'
+)
+
+c. The "hyper-parameters" taught in this section are the learning rate, 
+steps, and batch size. As for model training, the hyperparameters are 
+dependent on the data, so there is not hard rules. Regardless, there are 
+some "rules of thumb", such as:
+
+* Training error should quickly decrease, then plateau
+* Lower learning rater plus a large number of steps, or a large batch 
+size is usually an effective combonation.

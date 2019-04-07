@@ -1,0 +1,17 @@
+a.
+
+	1:
+
+cities['Area > 50 and Saint Name'] = ((cities['Area square miles'] > 50) & cities['City name'].apply(lambda name: 
+name.startswith('San')))
+cities
+
+	2:
+
+cities.reindex([0,2,1,7])
+
+b. Pandas is effectively a *superset* of NymPy, in that it offers extra features not included in NumPy, such as easy graph 
+generation. Pandas also automatically adds NaN values to nonexistant indexes, so ML datasets require less sanitization.
+
+c. It may be useful to shuffle a DataFrame to expose different data to other external tools or help with statistical 
+sampling.

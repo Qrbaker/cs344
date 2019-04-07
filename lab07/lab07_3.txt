@@ -1,0 +1,32 @@
+a.
+	Task 1:
+
+california_housing_dataframe["rooms_per_person"] = 
+california_housing_dataframe["total_rooms"] / 
+california_housing_dataframe["population"]
+
+calibration_data = train_model(
+    learning_rate=0.03,
+    steps=750,
+    batch_size=15,
+    input_feature="rooms_per_person"
+)
+
+	Task 2:
+
+plt.scatter(calibration_data['predictions'], 
+calibration_data['targets'], np.random.rand(2), alpha = 0.9)
+
+	Task 3:
+
+clipped_feature = 
+california_housing_dataframe["rooms_per_person"].apply(lambda x: min(x, 
+4))	
+
+b. Synthetic features can reveal additional correlations not as apparent in the initial data, which 
+can help train better models.
+
+
+c. Outliers are simply data points that are far away from where most of the remaining data exists. 
+These are typically ignored or thrown out, as they will skew the model.
+	
