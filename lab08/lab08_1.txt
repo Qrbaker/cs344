@@ -2,5 +2,11 @@ Question Responses:
 	a. The Pearson correlation coefficient (a.k.a. r-value) is a single-number representation of the correlation between 
 two given variables.
 	b. 
-		Task 1:
+		Task 1: minimal_features = ["rooms_per_person", "longitude", "latitude", "median_income"]
+				Final RMSE: 112.62 (Better than Google's!)
+				
+		Task 2: training_examples["dist_from_LA"] = abs(training_examples["latitude"] - 34)
+				training_examples["dist_from_SF"] = abs(training_examples["latitude"] - 38)
+				Final RMSE: 123.16
+			
 	

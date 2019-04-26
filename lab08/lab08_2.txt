@@ -1,0 +1,32 @@
+# Responses:
+	## a. 
+	The specified learning rate is actually just an input rate (or tensor) that the FTRL process starts from. The code later creates a "linear_regressor" object, and the learning_rate value is not directly used.
+	
+	## b. 
+	Bucketizing is useful for converting features across a broad range of values into more descrete chunks/buckets/bins that in turn can be converted into "one-hot" vectors. It helps because this process is basically a pre-optimization of the data; which helps prevent over-fitting and speeds up training. Additionally, feature crosses only support discrete features.
+	
+	## c. 
+		### Task 1:
+		
+		#### Code:
+		  bucketized_latitude = tf.feature_column.bucketized_column(
+			latitude, boundaries=get_quantile_based_boundaries(
+			  training_examples["latitude"], 10))
+		  bucketized_housing_median_age = tf.feature_column.bucketized_column(
+			housing_median_age, boundaries=get_quantile_based_boundaries(
+			  training_examples["housing_median_age"], 5))
+		  bucketized_median_income = tf.feature_column.bucketized_column(
+			median_income, boundaries=get_quantile_based_boundaries(
+			  training_examples["median_income"], 5))
+		  bucketized_rooms_per_person = tf.feature_column.bucketized_column(
+			rooms_per_person, boundaries=get_quantile_based_boundaries(
+			  training_examples["rooms_per_person"], 3))
+		
+		I found that the values chosen were pretty aribtrary -- the code example even notes this. I tried selecting a # of buckets based on what I expected the min and max values to be.
+		
+		### Task 2:
+		
+		#### Code: 
+		  long_x_lat = tf.feature_column.crossed_column([bucketized_longitude, bucketized_latitude], 500)
+		
+		I could see an interesting feature cross being median age with median income. It might show that older people have different housing charactaristics than younger people regardless of income level (i.e. square footage).

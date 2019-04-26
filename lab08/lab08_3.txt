@@ -1,0 +1,17 @@
+# Responses - 8.3:
+
+	## a.
+	Seaborn is a superset of MatPlotLib, offering a special interface for easily making pretty-looking statistical graphs. The downside is it means you will have less granularity as seaborn will make asthetic choices for you.
+	
+	## b.
+	The auto MPG dataset has 398 instances with 8 attributes. This is usually considered too small for an effective production regression model, and while it works okay for the test data, it may have issues on newer input data.
+	
+	## c.
+	Normalization of the data squashes all of the attributes to be values within the same range (often 0-1). This helps remove complexity based on choice of units and makes the model more likely to converge.
+	
+	## d.
+	Yes, as the model is developing a *linear* model that best fits the training data.
+	
+	## e.
+	From what we've learned, I'm inclined to agree. Too many datapoints may make for a model that fits the training data really well, but falls prone to *over-fitting* and as a result performs worse on new data.
+	
