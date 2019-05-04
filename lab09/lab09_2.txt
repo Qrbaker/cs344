@@ -1,0 +1,9 @@
+a. Two reasons: First, by zeroing out model parameters, they can be removed from the model 
+entirely, which increases efficency. Second, relying on fewer parameters means the model is more 
+generalized and less likely to over-fit to training data.
+
+b. L1 Regularization adds a penatly to the model based on the sum of the absolute values of the 
+weights. This means that if a lot of weights aren't zero or at least close to zero, the model 
+will be favored much less.
+
+c. Model size: 588, LogLoss: 0.25, Gamma: 0.75

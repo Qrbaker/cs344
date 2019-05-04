@@ -1,0 +1,16 @@
+a. *Exercise 1*:
+	i. The cats/dogs datasets are 2000 images taken from a larger 25,000 image set.
+	ii. 
+	iii. When looking at an example, I noted intermediate representations highlighted lines 
+and successively highlighted or discarded certain lines until only a few of them remained -- what 
+I assume the model has chosen to be the important features.
+b. *Exercise 2*:
+	i. Data augmentation is a way to synthesize more training data 
+by randomly transforming existing data samples to create new variations.
+	ii. history = model.fit_generator(
+	    train_generator,
+	    steps_per_epoch=120,
+	    epochs=35,
+	    validation_data=validation_generator,
+	    validation_steps=40,
+	    verbose=2)

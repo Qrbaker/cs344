@@ -1,0 +1,18 @@
+Responses:
+	a. Linear regression is essentially random, with an RMSE of slightly below 0.5 at each 
+period and a flat training curve.
+	b. L2 Loss doesn't work very well for probability output of binary results 
+because it doesn't penalize misclassifications appropriately. LogLoss is more effective at 
+probability training because it considers the logs of the values, which means more confident 
+classification gets a much better score.
+	c. The logistic regression model is a slower trainer but is behaving the way one would 
+expect a valid ML training model to, with its LogLoss slowly decreasing with each period.
+	d. 
+	=== RESULTS ===
+	AUC on the validation set: 0.80
+	Accuracy on the validation set: 0.78
+	=== HYPERPARAMS ===
+	learning_rate=0.000004,
+	steps=13000,
+	batch_size=100
+
