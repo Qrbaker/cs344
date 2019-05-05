@@ -10,6 +10,7 @@ Based on examples from https://keras.io/datasets/#boston-housing-price-regressio
 
 from keras.datasets import boston_housing
 
+# Assuming this is similar to the other datasets, the _x_ value is the data and the _y_ is labels.
 (x_train, y_train), (x_test, y_test) = boston_housing.load_data()
 
 # a1
