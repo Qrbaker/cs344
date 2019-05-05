@@ -1,0 +1,58 @@
+Exercise 1:
+	I want my ML model to determine the probability of a stock going
+ higher or lower in the next month.
+
+Exercise 2:
+	The ideal outcome would be to have a basic tool that helps a 
+stock trader narrow down a list of stocks to a shortlist of likely good 
+performers that can then be manually analyzed.
+
+Exercise 3:
+	A Success metric would be selecting stocks on historic data and 
+guessing correctly at least 80% of the time.
+
+	My Key Results would be correct guesses out of all guesses.
+
+	Failure is selecting stocks no better than a random guess. (i.e. 
+it might just be that *any* given stock has a 70%  chance of being 
+higher in one month).
+
+Exercise 4:
+	The output from the ML model will be a list of stock tickers 
+with associated probability values between 0 and 1.
+
+	The output is defined as association rule learning - try to 
+learn what factors build into a successful stock.
+
+Exercise 5:
+	The output will be batched, likely ever 24 hours with end of day 
+(EOD) stock data.
+
+	We will use the outcome to populate a database that can be 
+queried for good stock options.
+
+Exercise 6:
+	If I didn't use ML, I would look at the previous n 30-day 
+periods, then simply report the percentage of periods the stock went up 
+as the probability.
+
+Exercise 7a:
+	The problem is best framed as a multi-class single-label 
+classification which assigns a percentage (0-100) probability of a 
+stock's performance.
+
+	 7b:
+	The simiplified problem could be binary classification: will the 
+stock go up or not?
+
+Exercise 8:
+	The Data I would use (if I could buy it) would be from a paid 
+service like EOD-Data. In the academic setting, I'd use the free sample 
+data from quandl.com or similar.
+
+Exercise 9:
+	Data - Stock Ticker, EOD price 1, 2, .... n, Exchange 
+(NSYE/NASDAQ), Recent News Coverage, Market Cap, Revenue, Profit
+	Output - Increase/Decrease
+
+Exercise 10: Ticker, EOD Prices, Exchange

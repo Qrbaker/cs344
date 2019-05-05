@@ -1,0 +1,17 @@
+Gain(Hungry?) = Entropy(Wait?) - Remainder(Hungry?)
+
+Entropy(Wait?) = log_2(2) = 1
+
+Remainder(Hungry?) = (7/12)(Entropy(Hungry?) + (5/12)(Entropy(!Hungry?))
+		   = (7/12)(-1) [ ((5/7)log_2(5/7)) + ((2/7)(log_2(2/7)) ] +
+			(5/12)(-1) [ ((1/5)log_2(1/5) + (4/5)log_2(4/5)) ]
+		   = (7/12)(0.347 + 0.516) + (5/12)(0.464 + 0.258)
+
+		  < At this point I plugged in the numbers >
+		   = 0.80425
+	
+
+Gain(Hungry?) = 1 - 0.80425 = 0.196
+
+As calculated in class, Gain(Patrons?) is 0.54, which is greater than Gain(Hungry?), and 
+therefore Patrons is still the preferred attribute.
