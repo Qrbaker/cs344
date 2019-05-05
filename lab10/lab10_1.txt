@@ -1,0 +1,8 @@
+a. I prefer Keras, because it simplifies creating models by abstracting much of the work away 
+   as a library on top of TensorFlow (or whatever ML toolset you use).
+
+b. learning_rate=0.003,
+   steps=2500,
+   batch_size=250,
+   hidden_units=[24, 10, 5]
+ 
