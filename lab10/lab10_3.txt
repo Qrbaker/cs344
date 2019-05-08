@@ -1,3 +1,15 @@
-a. The confusion matix is a graphical representation of the mistakes made by the model; showing on a 2D graph what the correct and actual guesses were.
-b. 
-c. 
+a. The confusion matix is a graphical representation of the mistakes made by the model; showing on a 2D graph what the correct and actual guesses were. In general, the successful NN examples have a strong coloring where X=Y, which means the guess and the actual are the same. There are some slight colorations scattered around the matrix, but are barely visible. Notably, the model tends to mis-classify some 9s as 4s -- an intuitive mistake, given how even humans can stumble over these similar-looking digits in handwritten form.
+
+b. Because of how the NN is constructed for the examples with TensorFlow, it requires *much* more work to add different layers. Spesifically, with the particular `tf.estimator.DNNClassifier`constructor in use, there is an argument to add generic "hidden layers", but TensorFlow is handling all the softMax and Pooling for us. This is nice for quick-and-dirty NN creation, but means that we will need different constructors or more direct hooks into the TF library for more customization.
+
+  I found I got a better result by increasing the learning rate slightly and decreasing the size of my hidden layers. For such a well-sized test set, I actually think smaller NNs are better - for the same reason we want to regularize features, its sometimes just better to focus on less features from the start. Here was a decent parameter set I found:
+
+  classifier = train_nn_classification_model(
+      learning_rate=0.06,
+      steps=1000,
+      batch_size=22,
+      hidden_units=[60, 60]
+
+c. So, in general, lower steps resulted in much higher rates of error, which makes sense as the NN is training for orders of magnitude less time. When checking out the visualizations, there is a clear progression in the discovery of features:
+  10 steps - basically noise. This visually aligns with the very poor accuracy of 49%, which is better than random guesses, but not by much.
+  1000 steps - I can start to make out defining features of numbers -- the curve of 6s, the strong vertical line for 1, etc. There are also a few layers that still look like complete static. This would align with the neurons that have been regularized and ignored by higher layers, as for whatever reason they didn't converge to useful features.
