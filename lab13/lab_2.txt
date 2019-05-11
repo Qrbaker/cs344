@@ -1,0 +1,67 @@
+Exercise 13, Exercise 2
+Author: Quentin Baker
+
+Note: ¬ is the logical negation, V is logical OR, ^ is logical AND
+
+
+=== Facts Given ===
+on(A,B)
+on(B,C)
+Supports(Table,C)
+
+Supports(Entity1,Entity2) => on(Entity2,Entity1)
+on(Entity1,Entity2) => above(Entity1,Entity2)
+above(Entity1,Entity2) ^ above(Entity2, Entity3) => above(Entity1, Entity3)
+
+=== Proof Statement ===
+above(A,Table)?
+
+=== Proof ===
+
+	==== Lemmas for Proof ====
+	supports(X,Y) => on(X,Y) := ¬supports(X,Y) V on(Y,X)
+
+	on(X,Y) => above(X,Y) := ¬on(X,Y) V above(X,Y)
+
+	above(X,Y) ^ above(Y,Z) => above(X,Z) := ¬above(X,Y) V ¬above(Y,Z) V above(X,Z)
+
+
+Proof by contradiction:
+
+    Assume ¬above(A,Table). Stated with our knowns, we have the following:
+
+¬above(A,Table) ^ on(A,B) ^ on(B,C) ^ supports(Table,C) ^ [¬supports(X,Y) V on(Y,X)] ^ [¬on(X,Y) V above(X,Y)] ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+
+    Now begin to unify terms:
+ 
+	==> supports(Table,C) with ¬supports(X,Y) V on(Y,X) -> on(C,Table)
+
+¬above(A,Table) ^ on(A,B) ^ on(B,C) ^ on(C,Table) ^ [¬on(X,Y) V above(X,Y)] ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+
+	==> on(A,B) ^ ¬on(X,Y) V above(X,Y) -> above(A,B)
+
+¬above(A,Table) ^ on(B,C) ^ on(C,Table) ^ above(A,B) ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+    
+	==> on(B,C) -> above(B,C) (per our facts given)
+
+¬above(A,Table) ^ above(B,C) ^ on(C,Table) ^ above(A,B) ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+
+	==> on(C,Table) -> above(C,Table) (per our facts given)
+
+¬above(A,Table) ^ above(B,C) ^ above(C,Table) ^ above(A,B) ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+
+	==> above(A,B) ^ above(B,C) -> above(A,C) (per our givens)
+
+¬above(A,Table) ^ above(A,C) ^ above(C,Table) ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+
+	==> above(A,C) ^ above(C,Table) -> above(A,Table)
+
+**¬above(A,Table) ^ above(A,Table)** ^ [¬above(X,Y) V ¬above(Y,Z) V above(X,Z)]
+
+
+
+We can stop at this point, because we have the logical contradiction "¬above(A,Table) ^ above(A,Table)".
+
+Per the Reductio Ad Absurdem process, we can state that A is above the Table.
+
+[QED] 
