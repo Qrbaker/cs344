@@ -34,10 +34,5 @@ def store_data_frame(data_frame):
     data_frame.to_csv("compiled_data_%s.csv" % datetime.date.today(), compression='zip')
 
 
-# stock_data = build_stock_data("Stock_Data\\Stocks")
-stock_data = pd.read_csv("compiled_data.zip", error_bad_lines=False)
-is_ticker = stock_data['ticker'] == 'AAPL'
-apple_stock = stock_data[is_ticker]
-print(apple_stock.tail())
-
-# store_data_frame(stock_data)
+stock_data = build_stock_data("Stock_Data\\Stocks")
+store_data_frame(stock_data)
