@@ -1,6 +1,11 @@
 # StockModel: Using Keras to Predict Stock Performance
 By Quentin Baker
 
+## Project Directory:
+* README <--- (You are here)
+* [Report](https://github.com/Qrbaker/cs344/blob/master/project/report.ipynb)
+* [Updates](https://github.com/Qrbaker/cs344/blob/master/project/updates.ipynb)
+
 This project uses Keras LSTM models, combined with Normalization layers, to predict a stock's performance.
 
 ## Installation
