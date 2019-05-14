@@ -8,8 +8,11 @@ The primary `StockModel` class is written in Python 3, and has the following non
 * Pandas
 * NumPy
 * Keras
-  * TensorFlow as Keras Backend
-  
+  * TensorFlow as Keras Backend  
+  (This is installed by default, but if you have a descreet GPU, consider using
+  `tensorflow-gpu` for increased performance. [Check this SO answer for details][so].)
+
+[so]:https://stackoverflow.com/a/52496209/9952260  
 You can quickly install all requirements with `pip install -r requirements.txt`
 
 The dataset is avalible here:

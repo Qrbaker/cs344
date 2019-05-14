@@ -65,6 +65,8 @@ class StockModel:
         #       - https://github.com/DarkKnight1991/Stock-Price-Prediction
         self.model.add(layers.LSTM(units=100, return_sequences=True, input_shape=(self.x_train.shape[1], 1)))
         self.model.add(layers.LSTM(units=75, return_sequences=True))
+        # Added a dropout layer, then another LSTM on the dropped data with less nodes
+        self.model.add(layers.Dropout(0.3))
         self.model.add(layers.LSTM(units=50))
         # I chose to normalize the data at this point, given how many inputs there are in the form of stock data (
         # usually >1000!)
